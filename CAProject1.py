@@ -1,10 +1,11 @@
 def pigLatinTranslator():
-	print("Welcome to this Pig Latin translator. ")
-	engWord = input("Please input the word you wish to translate into pig latin, or type 'q' to end program.")
-	eWordLength = len(engWord)
-	zero = engWord[0]
-	first = engWord[1]
-	if(engWord != "q"):
+	engWord = input("Please input the word you wish to translate, or type 'q' to end program.")
+	if(engWord == "q"):
+		print("Goodbye!")
+	elif(engWord.isalpha()):
+		eWordLength = len(engWord)
+		zero = engWord[0]
+		first = engWord[1]
 		if(eWordLength == 1):
 			print("Please input a word consisting of more than one letter.")
 			pigLatinTranslator()
@@ -12,12 +13,14 @@ def pigLatinTranslator():
 			print("Please input a word.")
 			pigLatinTranslator
 		else:
-			print(first.upper() + engWord[2:eWordLength] + zero.lower() + "ay")
+			print(engWord + " --oink-> " + first.upper() + engWord[2:eWordLength] + zero.lower() + "ay")
 	else:
-		"Goodbye!"
+		print("Word must be composed of Latin Alphabet only.")
+		pigLatinTranslator()
+		
 	
 		
 		
 	
-	
+print("Welcome, this is a rudimentary Pig Latin translator. ")
 pigLatinTranslator()
