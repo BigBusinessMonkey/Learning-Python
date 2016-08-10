@@ -1,7 +1,8 @@
 import random
 """
-Rigged random number generator, based on an initial misunderstanding of a programming challenge. Takes arguments "high" or "low" or "unweighted", 
-which determines whether generated numbers are weighted towards high end or low end.
+Rigged random number generator, based on an initial misunderstanding of a programming challenge. Provides x weighted random numberers, where x is a quantity determined by user, when given upper 
+and lower bounds (also by user). Takes arguments "high" or "low" or "unweighted", 
+which determines whether generated numbers are weighted towards high end or low end. Attempts to bias results subtly.
 
 Work in progress
 """
@@ -10,19 +11,19 @@ def weightnum(weighting):
     lower = int(input("Input lower boundary: "))
     upper = int(input("\nInput upper boundary: "))
     quant = int(input("\nHow many numbers do you wish to generate? "))
-    median = lower + upper / 2
+    median = int(lower + upper / 2)
     if(upper <= lower):
         print("Upper bound must exceed lower bound, please try again.\n")
         weightnum()
     else:
          for x in range(1, (quant + 1)):
-            flip = random.randint(0,1)
-            if(flip == 1 or weighting == "unweighted"):
+            flip = random.randint(0,2)
+            if(flip >= 1 or weighting == "unweighted"):
                 print(random.randint(lower,upper))
             else:
                 if(weighting == "high"):
-                    print(random.randint(median + lower / 2,upper))
+                    print(random.randint(int(median + lower / 2),upper))
                 elif(weighting == "low"):
-                    print(random.randint(lower, median + upper / 2))
+                    print(random.randint(lower, int(median + upper / 2)))
                     
 weightnum("high")
