@@ -3,18 +3,19 @@ fragment of text adventure, created to increase fluency with simpler elements of
 """
 class Character(object):
     health = "Perfectly Healthy"
-    def __init__(self,name,affiliation):
+    def __init__(self,name,species,age,affiliation):
         self.name = name
+        self.species = species
         self.keyTraits = []
         self.affiliation = affiliation
-        
-#invalid syntax?
+
     def checkHealth(self):
-        print(self.name + " is " self.health)
+        return(self.name + " is " + self.health)
         
         
     
-protag = Character("none","Neutral")         
+protag = Character("Player","Human",20,"Self")   
+ucelagon = Character("Ucelagon the Wise","Wizard","Impossibly old","The pursuit of arcane learning")    
 dogName = ""
 antName = ""
 ambition = ""
@@ -24,7 +25,7 @@ def start():
     begin = input("Type 'start' to begin, or anything else to end the program. ")
     begin = begin.lower()
     if(begin == "start"):
-        print("You are the sixth prince of Anhedonia, the 45th child of King Nero the Great. As the youngest prince you have very few responsibilities, and nobody expects much of you. You have a great deal of free time, and you spend most of it reading, exploring the vast palatial grounds, and playing with your dog.\n")
+        print("You are the seventh prince of Anhedonia, the 45th child of King Nero the Great. As the youngest prince you have very few responsibilities, and nobody expects much of you. You have a great deal of free time, and you spend most of it reading, exploring the vast palatial grounds, and playing with your dog.\n")
         dogName = input("Do you remember your dog's name? ").lower()
         dogName = (dogName[0].upper() + dogName[1:])
         dogIntro = "He has been your loyal companion and guardian since childhood. Given as a gift to your father by ambassadors from the distant land of Zet Tsuubou, " + dogName + " is the size of a large 12 year old boy, and with his thick brown main has been mistaken, at times, for either a dire wolf, a bear, or some undiscovered species of Lion. His breed are smart, strong, loyal and have a natural life span on par with humans. " + dogName + " though the same age as you, willl likely outlive you. He likes cucumber, and chasing rabbits. He is a good dog\n"
@@ -49,7 +50,7 @@ def start():
         print("Maybe another time then.")            
             
 def prologue(doggy):
-    print("Yes, " + (dogName) + " certainly is a wonderful dog, and while it's tempting to continue to expound his myriad merits, unfortunately other things must take precedence currently. As the sixth prince, though you admittedly have few obligations, you still have some. Most immediate among them is the obligation to wake up before midday and get out of bed.")
+    print("Yes, " + (dogName) + " certainly is a wonderful dog, and while it's tempting to continue to expound his myriad merits, unfortunately other things must take precedence currently. As the seventh prince, though you admittedly have few obligations, you still have some. Most immediate among them is the obligation to wake up before midday and get out of bed.")
     decisionOne = input("First things first: do you think you might like to wake up? (yes or no)").lower 
     if(decisionOne == no):
         print("")
@@ -58,4 +59,3 @@ def prologue(doggy):
     elif(decisionOne == maybe):
         print("")
         
-print(protag.health)
