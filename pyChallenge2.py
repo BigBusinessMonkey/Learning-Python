@@ -11,31 +11,27 @@ print("----MASTERMIND----\n\nGuess the 4 numbers in as few tries as possible.")
 while True:
     guess = input(str(guesses + 1) + ") ")
     guesses += 1
-    feedback = ""
+    feedback = 0
     if(int(guess) == number):
         print("Congratulations, you found the number in " + str(guesses) + " guesses.")
         break
-    elif(int(guess) > 9999 or int(guess) < 1000):
+    elif(int(guess) > 9999 or len(list(guess)) != 4):
         print("Number has four digits.")
         guesses -= 1
         continue
     else:
         for x in range(4):
-            print(x)
             numList = list(str(number))
             guessList = (str(guess))
-            print(numList[x])
-            print(guessList[x])
-            print(numList)
-            print(guessList)
             if(numList[x] == guessList[x]):
-                feedback += "*"
+                feedback += 1
                 continue
             else:
-                feedback += "_"
                 continue
               
-        print(feedback)
+        print(feedback * "*")
+        if(feedback == 0):
+            print("No numbers correct.")
         continue
         
     
